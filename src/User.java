@@ -8,13 +8,13 @@ public class User {
     int amount;
 
     public void loginName() {
-        System.out.println("What Is Your Name?");
+        System.out.println("What is your name?");
         name = ATM.scanner.nextLine();
         System.out.println("Welcome, " + name + ".");
     }
 
     public void choice() throws Exception {
-        System.out.println("What Would You Like to Do? [check balance / withdraw / cancel]");
+        System.out.println("What would you like to do? [check balance / withdraw / cancel]");
         choice = ATM.scanner.nextLine();
 
         if (choice.equalsIgnoreCase("check balance")) {
