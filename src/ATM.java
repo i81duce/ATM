@@ -10,7 +10,6 @@ public class ATM {
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
-        System.out.println("SC Federal Credit Union");
         HashMap<String, Double> member = new HashMap<>();
         member.put("Kevin", 1000.0);
         member.put("Doug", 500.0);
@@ -34,14 +33,18 @@ public class ATM {
                     System.exit(0);
                 }
             } else {
-                user.balance = member.get(user.name);
-                user.choiceMethod();
-                if (user.choice.equalsIgnoreCase("delete")) {
-                    member.remove(user.name);
-                } else {
-                    member.put(user.name, user.balance);
+                while (true) {
+                    user.balance = member.get(user.name);
+                    user.choiceMethod();
+                    if (user.choice.equalsIgnoreCase("delete")) {
+                        member.remove(user.name);
+                        break;
+                    } else if (user.choice.equalsIgnoreCase("logout")) {
+                        break;
+                    } else {
+                        member.put(user.name, user.balance);
+                    }
                 }
-
             }
         }
     }

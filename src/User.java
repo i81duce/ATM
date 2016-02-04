@@ -10,6 +10,7 @@ public class User {
     int amount;
 
     public void loginName() {
+        System.out.println("SC Federal Credit Union");
         System.out.println("Please enter your first name here:");
         name = ATM.scanner.nextLine();
         System.out.println("Hi there, " + name + ".");
@@ -18,7 +19,7 @@ public class User {
 
 
     public void choiceMethod() throws Exception {
-        System.out.println("What would you like to do? [check balance / withdraw / deposit / cancel / delete]");
+        System.out.println("What would you like to do? [check balance / withdraw / deposit / cancel / delete / logout]");
         choice = ATM.scanner.nextLine();
 
         if (choice.equalsIgnoreCase("check balance")) {
@@ -42,6 +43,8 @@ public class User {
                 System.out.println("Deposit successful. You now have " + "$"+ balance + " currently in your account.");
         } else if (choice.equalsIgnoreCase("delete")) {
             System.out.println("Successful. Your account has been deleted");
+        } else if (choice.equalsIgnoreCase("logout")) {
+            System.out.println("Thank you for banking with SC Federal Credit Union. Have a great day!");
         } else {
             System.out.println("There doesn't appear to be an option for that. Please select another:");
         }
