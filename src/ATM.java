@@ -35,8 +35,13 @@ public class ATM {
                 }
             } else {
                 user.balance = member.get(user.name);
-                user.choice();
-                member.put(user.name, user.balance);
+                user.choiceMethod();
+                if (user.choice.equalsIgnoreCase("delete")) {
+                    member.remove(user.name);
+                } else {
+                    member.put(user.name, user.balance);
+                }
+
             }
         }
     }

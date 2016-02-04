@@ -17,8 +17,8 @@ public class User {
 
 
 
-    public void choice() throws Exception {
-        System.out.println("What would you like to do? [check balance / withdraw / deposit / cancel]");
+    public void choiceMethod() throws Exception {
+        System.out.println("What would you like to do? [check balance / withdraw / deposit / cancel / delete]");
         choice = ATM.scanner.nextLine();
 
         if (choice.equalsIgnoreCase("check balance")) {
@@ -40,6 +40,8 @@ public class User {
             amount = Integer.valueOf(ATM.scanner.nextLine());
             balance +=  amount;
                 System.out.println("Deposit successful. You now have " + "$"+ balance + " currently in your account.");
+        } else if (choice.equalsIgnoreCase("delete")) {
+            System.out.println("Successful. Your account has been deleted");
         } else {
             System.out.println("There doesn't appear to be an option for that. Please select another:");
         }
