@@ -4,7 +4,7 @@ import java.util.HashMap;
  * Created by KevinBozic on 2/3/16.
  */
 public class User {
-    int balance;
+    double balance = 100.0;
     String name;
     String choice;
     int amount;
@@ -14,6 +14,8 @@ public class User {
         name = ATM.scanner.nextLine();
         System.out.println("Hi there, " + name + ".");
     }
+
+
 
     public void choice() throws Exception {
         System.out.println("What would you like to do? [check balance / withdraw / deposit / cancel]");
@@ -30,13 +32,13 @@ public class User {
             if (amount > balance) {
                 throw new Exception("Insufficient Funds");
             } else {
-                    balance = balance - amount;
+                    balance -= amount;
                 System.out.println("Withdrawal successful. You now have " + "$"+ balance + " remaining in your account.");
             }
         } else if (choice.equalsIgnoreCase("deposit")) {
             System.out.println("How much would you like to deposit?");
             amount = Integer.valueOf(ATM.scanner.nextLine());
-            balance = balance + amount;
+            balance +=  amount;
                 System.out.println("Deposit successful. You now have " + "$"+ balance + " currently in your account.");
         } else {
             System.out.println("There doesn't appear to be an option for that. Please select another:");
