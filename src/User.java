@@ -18,7 +18,7 @@ public class User {
 //amount = Integer.valueOf(ATM.scanner.nextLine());    goes into withdraw and deposit when using string
 
     public void choiceMethod() throws Exception {
-        System.out.println("What would you like to do?  [1]Check balance / [2]Withdraw / [3]Deposit / [4]Cancel / [5]Delete / [6]Logout]");
+        System.out.println("What would you like to do? [1]Check balance / [2]Withdraw / [3]Deposit / [4]Cancel / [5]Delete / [6]Logout]");
 
         choice = Integer.valueOf(ATM.scanner.nextLine());
 
