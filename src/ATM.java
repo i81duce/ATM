@@ -3,9 +3,10 @@ import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
 import java.util.HashMap;
 import java.util.Scanner;
 
-/**
- * Created by KevinBozic on 2/3/16.
- */
+/*** Created by KevinBozic on 2/3/16.*/
+
+// Noticed when I deposited 11 digits worth of money, it crashes
+
 public class ATM {
     public static Scanner scanner = new Scanner(System.in);
 
@@ -18,12 +19,9 @@ public class ATM {
             User user = new User();
             user.loginName();
             if (!member.containsKey(user.name)) {
-                System.out.println("It seems as though we don't have an account under that name. Would you like to create a new account? [y/n]");
+                System.out.println("It seems as though we don't have an account under that name. If you choose to bank with us, we'll start you off with $100 in you account for free! Would you like to create a new account? [y/n]");
                 String existingAccount = ATM.scanner.nextLine();
-                if (existingAccount.equalsIgnoreCase("y")) { // need to loop this if user doesn't type y or n
-//                System.out.println("Please enter your first name to create an account:");
-//                String newAccount = ATM.scanner.nextLine();
-//                System.out.println("Welcome, " + newAccount + "!");
+                if (existingAccount.equalsIgnoreCase("y")) {
                     member.put(user.name, user.balance);
                 } else if (existingAccount.equalsIgnoreCase("n")) {
                     System.out.println("We're sorry to see you go. Have a wonderful day!");
@@ -36,10 +34,10 @@ public class ATM {
                 while (true) {
                     user.balance = member.get(user.name);
                     user.choiceMethod();
-                    if (user.choice.equalsIgnoreCase("delete")) {
+                    if (user.choice == 5) {
                         member.remove(user.name);
                         break;
-                    } else if (user.choice.equalsIgnoreCase("logout")) {
+                    } else if (user.choice == 6) {
                         break;
                     } else {
                         member.put(user.name, user.balance);
